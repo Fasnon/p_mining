@@ -1,0 +1,46 @@
+.Dashboard-header {
+  background: linear-gradient(
+    162deg,
+    rgba(123, 107, 198, 1) 0%,
+    rgba(123, 107, 198, 1) 36%,
+    rgba(250, 195, 253, 1) 100%
+  );
+  overflow: hidden;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 12vh;
+  padding-top: 4vh;
+  height: 10vh;
+}
+
+.DashCard {
+  left: auto;
+  background-color: #FFFFFF;
+  border: #000000;
+  border-radius: 2;
+  width: 16vw;
+  height: 20vh;
+  margin-left: 8vh;
+  padding: 0;
+}
+
+.DashCardTitle h3{
+  font-size: calc(8px + 1vh);
+  color: #666666;
+  /* font-family: "Playfair Display"; */
+  font-weight: 500;
+}
+.DashCardContent{
+  font-size: calc(16px + 1vh);
+  font-weight: 620;
+
+
+}
+
+.CardBar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20vh;
+  margin-top: 2vh;
+}
