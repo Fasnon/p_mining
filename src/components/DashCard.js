@@ -1,62 +1,62 @@
-// import { useState } from "react";   
-import "../Dashboard.css";
-import { Card, CardHeader, CardContent, Divider, Typography} from "@mui/material";
-
 import React from "react";
-function DashCard(props) {
-  // const [data] = useState(props.data);
+import "../Dashboard.css";
 
-  // let options = data.map((item, index) => (
-  //   <option key={index} value={item}>
-  //     {item}
-  //   </option>
-  // ));
-
+const DashCard = (props) => {
   return (
-    <Card className="DashCard" 
-    elevation={props?.elevation? props.elevation : 3}
-    >
-      {/* card header and action */}
-      {/* {!darkTitle && title && (
-        <CardHeader
-          sx={headerSX}
-          titleTypographyProps={{ variant: "subtitle1" }}
-          title={title}
-          action={secondary}
-        />
-      )} */}
-      {/* {darkTitle && title && ( */}
-        <CardHeader
-          className="DashCardTitle"
-          // sx={headerSX}
+    <div className="DashCard">
+      <div className="DashCardMainGroup">
+        <div className="DashCardMainGroupOverlap">
+          <div className="DashCardTitle">
+            {props?.title ? props.title : "Placeholder title"}
+          </div>
+          <p className="DashCardContent">
+            <span className="DashCardContentPre">
+              {props?.contentpre ? props.contentpre : ""}
+            </span>
+            <span
+              className="DashCardContentMain"
+              style={{ color: props?.trendPositive ? "#60EC6E" : "#EC6060" }}
+            >
+              {props?.contentmain ? props.contentmain : "24 fewer cases "}
+            </span>
+            <span className="DashCardContentPost">
+              {props?.contentpost
+                ? props.contentpost
+                : "processed non-STP this week."}
+            </span>
+          </p>
 
-          titleTypographyProps={{ variant: "subtitle1" }}
-          title={<Typography variant="h3">{props?.title? props.title : "Placeholder title"}</Typography>}
-          // action={secondary}
-        />
-      {/* )} */}
-
-      {/* card content */}
-      <div>
-      <CardContent
-        style={{ paddingTop: "0px"}}
-        className="DashCardContent"
-      > {props?.content? props.content : "Placeholder content. Lorem ipsun Lorem ipsum"}</CardContent>
-
+          <div className="DashCardNumGroup">
+            <div className="DashCardNum">
+              {props?.numeric ? props.numeric : "198"}
+            </div>
+            <div className="DashCardNumGroupWrapper">
+              <img
+                className="DashCardNumTrendBG"
+                alt="Rectangle"
+                src={
+                  props?.trendPositive
+                    ? require("../assets/images/chips_rect_bg_green.svg")
+                    : require("../assets/images/chips_rect_bg_red.svg")
+                }
+              />
+              <img
+                className="DashCardNumTrend"
+                alt="Chips Decrease"
+                src={
+                  props?.trendIncreasing
+                    ? require("../assets/images/chips_increase.svg")
+                    : require("../assets/images/chips_decrease.svg")
+                }
+              />
+              <div className="DashCardTrendNum">
+                {props?.nTrend ? props.nTrend : "1000%"}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      {/* {!content && c}hildren} */}
-
-      {/* card footer - clipboard & highlighter  */}
-      {/* {codeHighlight && ( */}
-        <>
-          <Divider sx={{ borderStyle: "dashed" }} />
-          {/* <Highlighter codeHighlight={codeHighlight} main>
-            {children}
-          </Highlighter> */}
-        </>
-      {/* )} */}
-    </Card>
+    </div>
   );
-}
-
+};
 export default DashCard;

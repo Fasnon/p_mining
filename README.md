@@ -1,4 +1,5 @@
 # process_mining
+
 Frontend for process mining
 
 # Getting Started with Create React App
