@@ -55,6 +55,17 @@
   margin-left: 6vh;
 }
 
+.ReactFlowBg {
+  margin-top: 1vh;
+  margin-left: 5vh;
+  background-color: #ffffff;
+  width: 720px;
+  height: 760px;
+  border: 1px solid;
+  border-color: #d8d8d8;
+  border-radius: 10px;
+}
+
 .DashCard {
   left: auto;
   background-color: #ffffff;
