@@ -22,23 +22,52 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 20vh;
+  margin-left: 16vh;
   margin-top: 2vh;
+}
+
+.MainContainer {
+  margin-top: 4vh;
+  margin-left: 4vh;
+}
+
+.MainContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ColumnContainer {
+  float: left;
+  width: 50%;
+  border: #000000;
+}
+
+.ColumnHeader {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 0;
+  white-space: nowrap;
+  margin-left: 6vh;
 }
 
 .DashCard {
   left: auto;
   background-color: #ffffff;
   height: 132px;
-  width: 300px;
-  margin-left: 5vh;
+  width: 320px;
+  margin-left: 3vh;
 }
 
 .DashCard .DashCardMainGroup {
   height: 129px;
   left: 0;
   top: 0;
-  width: 304px;
+  width: 312px;
 }
 
 .DashCard .DashCardMainGroupOverlap {

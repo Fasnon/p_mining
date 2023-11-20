@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../App.css";
+import "../assets/styles/App.css";
 import Spacer from "../components/Spacer";
 import React from "react";
 
