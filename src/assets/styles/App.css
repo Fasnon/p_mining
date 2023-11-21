@@ -2,8 +2,9 @@
   overflow: scroll;
   background-color: #fafafb;
   width: 100vw;
-  height: 100vh;
+  height: 108vh;
   padding-bottom: 8vh;
+  scroll-behavior: smooth;
 }
 
 .App-logo {
