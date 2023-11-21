@@ -12,6 +12,8 @@ import ReactFlow, {
   MarkerType,
 } from "reactflow";
 
+import { Chart } from "react-google-charts";
+
 import "reactflow/dist/style.css";
 
 const nodeTypes = { processNode: ProcessNode };
@@ -204,7 +206,7 @@ const Dashboard = () => {
       </div>
 
       <div className="MainContainer">
-        <div className="ColumnContainer">
+        <div className="LeftColumnContainer">
           <div className="ColumnHeader">Flowchart Overview</div>
 
           <div className="ReactFlowBg">
@@ -219,13 +221,97 @@ const Dashboard = () => {
             >
               <Controls position="top-right" />
 
-              <Background variant="dots" gap={12} size={1} />
+              <Background variant="dots" gap={16} size={1.5} />
             </ReactFlow>
           </div>
         </div>
-        <div className="ColumnContainer">
+
+        <div className="RightColumnContainer">
           <div className="ColumnHeader">Key Metrics</div>
-          <div className="ReactFlowBg"></div>
+          <div className="ReactFlowBg">
+            <div className="ChartBar">
+              <div className="Chart">
+                <Chart
+                  chartType="PieChart"
+                  data={[["Status", "Count"], ["yes", 9], ["no", 7], ["maybe", 6],["perhaps", 5],["aa", 3],["other", 8],]}
+                  options={{
+                    title:"Variant Counts",
+                    pieHole: 0.6,
+                    'width':340,
+                    'height':240,
+                    'backgroundColor': { fill:'transparent' },
+                    legend: {position: 'none'},
+                    pieSliceText: "none",
+                    colors: ['#729AC2', '#DF8B5B', '#68B279', '#C95D61', '#897BB8', '#D9D9D9'],
+                    
+                    titleTextStyle: {
+                        color: '#000000',   
+                        fontName: 'IBM Plex Mono', 
+                        fontSize: 14, 
+                        bold: false,    
+                        italic: false   
+                    },
+                    is3D: false,}
+                  }
+                />
+                <div className="ChartInsideText">14</div>
+              </div>
+              <div className="Chart">
+                <Chart
+                  chartType="PieChart"
+                  data={[["Status", "Count"], ["STP", 29], ["Non-STP", 62]]}
+                  options={{
+                    title:"STP Cases",
+                    pieHole: 0.6,
+                    'width':340,
+                    'height':240,
+                    'backgroundColor': { fill:'transparent' },
+                    legend: {position: 'none'},
+                    pieSliceText: "none",
+                    
+                    titleTextStyle: {
+                      color: '#000000',   
+                      fontName: 'IBM Plex Mono', 
+                      fontSize: 14, 
+                      bold: false,    
+                      italic: false   
+                  },
+                  colors: ["#6AB451", "#D9D9D9"],
+                    is3D: false,}
+                  }
+                />
+                <div className="ChartInsideText">29/91</div>
+              </div>
+              <div className="Chart">
+                <Chart
+                  chartType="PieChart"
+                  data={[["Status", "Count"], ["Longer than 3 days", 58], ["Shorter than 3 days", 22]]}
+                  options={{
+                    title:"Cases > 3 Days",
+                    pieHole: 0.6,
+                    'width':340,
+                    'height':240,
+                    'backgroundColor': { fill:'transparent' },
+                    legend: {position: 'none'},
+                    pieSliceText: "none",
+                    
+                    titleTextStyle: {
+                      color: '#000000',   
+                      fontName: 'IBM Plex Mono', 
+                      fontSize: 14, 
+                      bold: false,    
+                      italic: false   
+                  },
+                  colors: ["#C95D61", "#D9D9D9"],
+                    is3D: false,}
+                  }
+                />
+                <div className="ChartInsideText">58/80</div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
