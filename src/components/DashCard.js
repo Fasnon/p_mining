@@ -36,8 +36,8 @@ const DashCard = (props) => {
                 alt="Rectangle"
                 src={
                   props?.trendPositive
-                    ? "/images/chips_rect_bg_green.svg"
-                    : "/images/chips_rect_bg_red.svg"
+                    ? "/p_mining/images/chips_rect_bg_green.svg"
+                    : "/p_mining/images/chips_rect_bg_red.svg"
                 }
               />
               <img
@@ -45,8 +45,8 @@ const DashCard = (props) => {
                 alt="Chips Decrease"
                 src={
                   props?.trendIncreasing
-                    ? "/images/chips_increase.svg"
-                    : "/images/chips_decrease.svg"
+                    ? "/p_mining/images/chips_increase.svg"
+                    : "/p_mining/images/chips_decrease.svg"
                 }
               />
               <div className="DashCardTrendNum">

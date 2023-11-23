@@ -24,7 +24,7 @@ function ProcessNode({ data }) {
           </div>
 
           <div className="PNodeCount">{data.count ? data.count : "10,000"}</div>
-          <img className="line" alt="Line" src="images/node_line.svg" />
+          <img className="line" alt="Line" src="/p_mining/images/node_line.svg" />
           <div className="PNodeName">
             {data.stepName ? data.stepName : "Step"}
           </div>
