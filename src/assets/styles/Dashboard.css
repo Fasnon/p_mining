@@ -1,0 +1,224 @@
+.Dashboard-header {
+  background: linear-gradient(
+    142deg,
+    rgba(64, 19, 87, 1) 0%,
+    rgba(144, 98, 168, 1) 100%
+  );
+  overflow: hidden;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 10vh;
+  padding-top: 1vh;
+  height: 16vh;
+}
+
+.Dashboard-header h3 {
+  font-family: "KoHo", sans-serif;
+  color: #ffffff;
+  font-size: 60px;
+}
+
+.CardBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 2vh;
+  margin-top: 2vh;
+}
+
+.MainContainer {
+  margin-top: 4vh;
+  margin-left: 4vh;
+}
+
+.MainContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.LeftColumnContainer {
+  float: left;
+  width: 45%;
+  border: #000000;
+  margin-left: 4vh;
+}
+
+.RightColumnContainer {
+  float: left;
+  width: 45%;
+  border: #000000;
+  margin-left: 8vh;
+}
+
+.ColumnHeader {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 0;
+  white-space: nowrap;
+  margin-left: 2vh;
+}
+
+.ReactFlowBg {
+  flex-direction: column;
+  margin-top: 1vh;
+  background-color: #ffffff;
+  width: 45vw;
+  height: 760px;
+  border: 1px solid;
+  border-color: #d8d8d8;
+  border-radius: 10px;
+}
+
+.ChartBar {
+  width: 42vw;
+  height: 120px;
+  display: flex;
+  margin-left: 6vw;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.Chart {
+  position: relative;
+  width: 20vw;
+  height: 120px;
+  margin-left: -6vw;
+}
+
+.ChartInsideText {
+  top: 110px;
+  left: 148px;
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+}
+
+.HistoricalTrendChart{
+  margin-top: 120px;
+}
+
+.DashCard {
+  left: auto;
+  background-color: #ffffff;
+  height: 132px;
+  width: 352px;
+  margin-left: 7.5vh;
+}
+
+.DashCard .DashCardMainGroup {
+  height: 129px;
+  left: 0;
+  top: 0;
+  width: 312px;
+}
+
+.DashCard .DashCardMainGroupOverlap {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #d8d8d8;
+  border-radius: 10px;
+  height: 129px;
+  position: relative;
+  width: 298px;
+}
+
+.DashCard .DashCardTitle {
+  color: #707070;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 206px;
+}
+
+.DashCard .DashCardContent {
+  color: transparent;
+  font-family: "IBM Plex Mono", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 253px;
+}
+
+.DashCard .DashCardContentPre {
+  color: #666666;
+}
+
+.DashCard .DashCardContentPost {
+  color: #666666;
+}
+
+.DashCard .DashCardContentMain {
+  color: #60ec6e;
+}
+
+.DashCard .DashCardNum {
+  color: #000000;
+  font-family: "IBM Plex Mono", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 43px;
+  width: 54px;
+}
+
+.DashCard .DashCardNumGroupWrapper {
+  height: 30px;
+  left: 84px;
+  position: absolute;
+  top: 43px;
+  width: 107px;
+}
+
+.DashCard .DashCardNumGroup {
+  height: 30px;
+  position: relative;
+  width: 105px;
+}
+
+.DashCard .DashCardNumTrendBG {
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 104px;
+}
+
+.DashCard .DashCardNumTrend {
+  height: 20px;
+  left: 9px;
+  position: absolute;
+  top: 7px;
+  width: 21px;
+}
+
+.DashCard .DashCardTrendNum {
+  color: #ffffff;
+  font-family: "IBM Plex Mono", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 43px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 5px;
+  width: 62px;
+}

@@ -1,0 +1,116 @@
+.PNode {
+  height: 80px;
+  width: 221px;
+}
+
+.PNode .PNodeStart {
+  height: 80px;
+  width: 225px;
+  background-color: #fffdfd;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 8px;
+}
+
+.PNode .ButtonBar {
+  height: 80px;
+  top: 48px;
+  position: absolute;
+  width: 221px;
+}
+
+.PNode .FocusButtonWrapper {
+  height: 19px;
+  left: 160px;
+  position: absolute;
+  width: 57px;
+}
+
+.PNode .ExcludeButtonWrapper {
+  height: 19px;
+  left: 96px;
+  position: absolute;
+  width: 57px;
+}
+
+.PNode .FocusButton {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #4c4c4c;
+  border-radius: 4px;
+  height: 19px;
+  position: relative;
+  width: 56px;
+}
+
+.PNode .ExcludeButton {
+  background-color: #ec5f5f;
+  border: 1px solid;
+  border-color: #4c4c4c;
+  border-radius: 4px;
+  height: 19px;
+  position: relative;
+  width: 56px;
+}
+
+.PNode .FocusButtonText {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.PNode .ExcludeButtonText {
+  color: #ffffff;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.PNode .PNodeCount {
+  color: #505050;
+  font-family: "IBM Plex Mono-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 40px;
+  width: 120px;
+}
+
+.PNode .line {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 30px;
+  width: 220px;
+}
+
+.PNode .PNodeName {
+  color: #000000;
+  font-family: "IBM Plex Mono-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 7px;
+  white-space: nowrap;
+  width: 41px;
+}

@@ -1,0 +1,11 @@
+{
+  "typescript.suggest.paths": false,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.suggest.paths": false,
+  "git.enabled": true,
+  "git.path": "C:\\Program Files\\Git\\mingw64\\libexec\\git-core\\git.exe"
+}
