@@ -64,6 +64,7 @@
 }
 
 .ReactFlowBg {
+  flex-direction: column;
   margin-top: 1vh;
   background-color: #ffffff;
   width: 45vw;
@@ -83,20 +84,24 @@
   margin-top: 2vh;
 }
 
-.Chart{
+.Chart {
   position: relative;
   width: 20vw;
   height: 120px;
   margin-left: -6vw;
 }
 
-.ChartInsideText{
+.ChartInsideText {
   top: 110px;
   left: 148px;
   position: absolute;
   width: 40px;
   height: 20px;
   text-align: center;
+}
+
+.HistoricalTrendChart{
+  margin-top: 120px;
 }
 
 .DashCard {

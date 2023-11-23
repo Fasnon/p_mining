@@ -29,7 +29,7 @@ const initialNodes = [
     id: "2",
     type: "processNode",
     position: { x: 0, y: 150 },
-    data: { label: "2" , stepName: "Entry", count: "34,232" },
+    data: { label: "2", stepName: "Entry", count: "34,232" },
   },
   {
     id: "3",
@@ -158,7 +158,7 @@ const Dashboard = () => {
     [setEdges],
   );
   return (
-    <div className="App">
+    <>
       <header className="Dashboard-header">
         <h3>Process Mining Dashboard</h3>
       </header>
@@ -233,88 +233,151 @@ const Dashboard = () => {
               <div className="Chart">
                 <Chart
                   chartType="PieChart"
-                  data={[["Status", "Count"], ["yes", 9], ["no", 7], ["maybe", 6],["perhaps", 5],["aa", 3],["other", 8],]}
+                  data={[
+                    ["Status", "Count"],
+                    ["yes", 9],
+                    ["no", 7],
+                    ["maybe", 6],
+                    ["perhaps", 5],
+                    ["aa", 3],
+                    ["other", 8],
+                  ]}
                   options={{
-                    title:"Variant Counts",
+                    title: "Variant Counts",
                     pieHole: 0.6,
-                    'width':340,
-                    'height':240,
-                    'backgroundColor': { fill:'transparent' },
-                    legend: {position: 'none'},
+                    width: 340,
+                    height: 240,
+                    backgroundColor: { fill: "transparent" },
+                    legend: { position: "none" },
                     pieSliceText: "none",
-                    colors: ['#729AC2', '#DF8B5B', '#68B279', '#C95D61', '#897BB8', '#D9D9D9'],
-                    
+                    colors: [
+                      "#729AC2",
+                      "#DF8B5B",
+                      "#68B279",
+                      "#C95D61",
+                      "#897BB8",
+                      "#D9D9D9",
+                    ],
+
                     titleTextStyle: {
-                        color: '#000000',   
-                        fontName: 'IBM Plex Mono', 
-                        fontSize: 14, 
-                        bold: false,    
-                        italic: false   
+                      color: "#000000",
+                      fontName: "IBM Plex Mono",
+                      fontSize: 14,
+                      bold: false,
+                      italic: false,
                     },
-                    is3D: false,}
-                  }
+                    is3D: false,
+                  }}
                 />
                 <div className="ChartInsideText">14</div>
               </div>
               <div className="Chart">
                 <Chart
                   chartType="PieChart"
-                  data={[["Status", "Count"], ["STP", 29], ["Non-STP", 62]]}
+                  data={[
+                    ["Status", "Count"],
+                    ["STP", 29],
+                    ["Non-STP", 62],
+                  ]}
                   options={{
-                    title:"STP Cases",
+                    title: "STP Cases",
                     pieHole: 0.6,
-                    'width':340,
-                    'height':240,
-                    'backgroundColor': { fill:'transparent' },
-                    legend: {position: 'none'},
+                    width: 340,
+                    height: 240,
+                    backgroundColor: { fill: "transparent" },
+                    legend: { position: "none" },
                     pieSliceText: "none",
-                    
+
                     titleTextStyle: {
-                      color: '#000000',   
-                      fontName: 'IBM Plex Mono', 
-                      fontSize: 14, 
-                      bold: false,    
-                      italic: false   
-                  },
-                  colors: ["#6AB451", "#D9D9D9"],
-                    is3D: false,}
-                  }
+                      color: "#000000",
+                      fontName: "IBM Plex Mono",
+                      fontSize: 14,
+                      bold: false,
+                      italic: false,
+                    },
+                    colors: ["#6AB451", "#D9D9D9"],
+                    is3D: false,
+                  }}
                 />
                 <div className="ChartInsideText">29/91</div>
               </div>
               <div className="Chart">
                 <Chart
                   chartType="PieChart"
-                  data={[["Status", "Count"], ["Longer than 3 days", 58], ["Shorter than 3 days", 22]]}
+                  data={[
+                    ["Status", "Count"],
+                    ["Longer than 3 days", 58],
+                    ["Shorter than 3 days", 22],
+                  ]}
                   options={{
-                    title:"Cases > 3 Days",
+                    title: "Cases > 3 Days",
                     pieHole: 0.6,
-                    'width':340,
-                    'height':240,
-                    'backgroundColor': { fill:'transparent' },
-                    legend: {position: 'none'},
+                    width: 340,
+                    height: 240,
+                    backgroundColor: { fill: "transparent" },
+                    legend: { position: "none" },
                     pieSliceText: "none",
-                    
+
                     titleTextStyle: {
-                      color: '#000000',   
-                      fontName: 'IBM Plex Mono', 
-                      fontSize: 14, 
-                      bold: false,    
-                      italic: false   
-                  },
-                  colors: ["#C95D61", "#D9D9D9"],
-                    is3D: false,}
-                  }
+                      color: "#000000",
+                      fontName: "IBM Plex Mono",
+                      fontSize: 14,
+                      bold: false,
+                      italic: false,
+                    },
+                    colors: ["#C95D61", "#D9D9D9"],
+                    is3D: false,
+                  }}
                 />
                 <div className="ChartInsideText">58/80</div>
               </div>
 
             </div>
+            
+            <div className="HistoricalTrendChart">
+                <Chart
+                  chartType="ColumnChart"
+                  data={[
+                    ["Week", "STP", "Non-STP",
+                    {
+                      sourceColumn: 0,
+                      role: "annotation",
+                      type: "string",
+                      calc: "stringify",
+                    },],
+                    ["29 Oct - 4 Nov", 32000, 19202, Math.round(32000/(32000+19202) * 100 ) + '%'],
+                    ["5 Nov - 11 Nov", 68100, 9920, Math.round(68100/(68100+9920) * 100 ) + '%'],
+                    ["12 Nov - 18 Nov", 29105, 44201, Math.round(29105/(29105+44201) * 100 ) + '%'],
+                    ["19 Nov - 25 Nov", 14400, 39391, Math.round(14400/(14400+39391) * 100 ) + '%']
+                  ]}
+                  options={{
+                    isStacked: true,
+                    title: "Transactions over Time",
+                    
+                    bar: {groupWidth: "30%"},
+                    width: 840,
+                    height: 400,
+                    backgroundColor: { fill: "transparent" },
+                    legend: { position: "none" },
+                    pieSliceText: "none",
 
+                    titleTextStyle: {
+                      color: "#000000",
+                      fontName: "IBM Plex Mono",
+                      fontSize: 14,
+                      bold: false,
+                      italic: false,
+                    },
+                    colors: ["#6AB451", "#C95D61"],
+                    is3D: false,
+                  }}
+                />
+
+                </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

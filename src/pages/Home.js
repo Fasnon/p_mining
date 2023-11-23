@@ -11,7 +11,7 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <>
       <header className="App-header">
         <h3>Process Mining Dashboard</h3>
         <div className="file-upload">
@@ -37,7 +37,7 @@ function Home() {
           Or, view analysis of Snowflake data <a href="/dashboard">here</a>.
         </p>
       </header>
-    </div>
+    </>
   );
 }
 
