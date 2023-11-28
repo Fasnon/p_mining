@@ -1,6 +1,8 @@
 import React from "react";
 import "../assets/styles/Dashboard.css";
 
+const gradentParams = ['#FF0000', '#FFC0CB', '#FFFFFF', '#90EE90', '#228B22'];
+
 const DashCard = (props) => {
   return (
     <div className="DashCard">
@@ -36,8 +38,8 @@ const DashCard = (props) => {
                 alt="Rectangle"
                 src={
                   props?.trendPositive
-                    ? "/p_mining/images/chips_rect_bg_green.svg"
-                    : "/p_mining/images/chips_rect_bg_red.svg"
+                    ? "/images/chips_rect_bg_green.svg"
+                    : "/images/chips_rect_bg_red.svg"
                 }
               />
               <img
@@ -45,13 +47,14 @@ const DashCard = (props) => {
                 alt="Chips Decrease"
                 src={
                   props?.trendIncreasing
-                    ? "/p_mining/images/chips_increase.svg"
-                    : "/p_mining/images/chips_decrease.svg"
+                    ? "/images/chips_increase.svg"
+                    : "/images/chips_decrease.svg"
                 }
               />
               <div className="DashCardTrendNum">
                 {props?.nTrend ? props.nTrend : "1000%"}
               </div>
+              
             </div>
           </div>
         </div>
