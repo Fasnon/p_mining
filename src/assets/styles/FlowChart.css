@@ -55,7 +55,7 @@
 
 .PNode .FocusButtonText {
   color: #000000;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter", Helvetica;
   font-size: 10px;
   font-weight: 400;
   left: 12px;
@@ -68,7 +68,7 @@
 
 .PNode .ExcludeButtonText {
   color: #ffffff;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: "Inter", Helvetica;
   font-size: 10px;
   font-weight: 400;
   left: 10px;
@@ -81,7 +81,7 @@
 
 .PNode .PNodeCount {
   color: #505050;
-  font-family: "IBM Plex Mono-Regular", Helvetica;
+  font-family: "IBM Plex Mono", Helvetica;
   font-size: 12px;
   font-weight: 400;
   left: 16px;
@@ -103,7 +103,7 @@
 
 .PNode .PNodeName {
   color: #000000;
-  font-family: "IBM Plex Mono-Regular", Helvetica;
+  font-family: "IBM Plex Mono", Helvetica;
   font-size: 12px;
   font-weight: 400;
   left: 16px;
@@ -113,4 +113,16 @@
   top: 7px;
   white-space: nowrap;
   width: 41px;
+}
+
+.PNode .STPRate {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 190px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 6px;
 }

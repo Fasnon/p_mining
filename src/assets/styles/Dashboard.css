@@ -18,6 +18,53 @@
   font-size: 60px;
 }
 
+.BackToHome {
+  margin-left: 64px;
+  margin-top: 20px;
+  height: 24px;
+  left: 0;
+  top: 0;
+  width: 156px;
+  position: relative;
+}
+
+
+.BackToHome .BackToHomeIcon {
+  height: 16px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 16px;
+}
+
+.BackToHome .BackToHomeText {
+  color: #424242;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 0;
+  white-space: nowrap;
+}
+
+.PageName {
+  color: #000000;
+  margin-left: 64px;
+  margin-top: 4px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 36px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 0;
+  white-space: nowrap;
+  width: 341px;
+}
+
 .CardBar {
   display: flex;
   flex-direction: row;
@@ -27,7 +74,7 @@
 }
 
 .MainContainer {
-  margin-top: 4vh;
+  margin-top: 2vh;
   margin-left: 4vh;
 }
 
@@ -61,11 +108,34 @@
   top: 0;
   white-space: nowrap;
   margin-left: 2vh;
+  margin-top: 2vh;
+}
+
+.Slider{
+  width: 15vw;
+  position: relative;
+  top: -28px;
+  left: 30vw;
+}
+
+.HistoricalTrendBg {
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 45vw;
+  height: 250px;
+  border: 1px solid;
+  border-color: #d8d8d8;
+  border-radius: 10px;
+  margin-top: -32px;
+}
+
+.HistoricalTrendChart {
+  margin-top: -28px;
+  margin-left: -16px;
 }
 
 .ReactFlowBg {
   flex-direction: column;
-  margin-top: 1vh;
   background-color: #ffffff;
   width: 45vw;
   height: 760px;
@@ -100,16 +170,24 @@
   text-align: center;
 }
 
-.HistoricalTrendChart{
-  margin-top: 120px;
-}
-
 .DashCard {
   left: auto;
   background-color: #ffffff;
   height: 132px;
   width: 352px;
   margin-left: 7.5vh;
+}
+
+.ReportToCFO {
+  margin-top: 14vh;
+  margin-left: 6vh;
+  margin-right: 6vh;
+}
+
+.ReportToCFOTitle {
+  color: #555555;
+  font-size: 18px;
+  margin-bottom: 24vh;
 }
 
 .DashCard .DashCardMainGroup {
@@ -139,7 +217,7 @@
   line-height: normal;
   position: absolute;
   top: 16px;
-  width: 206px;
+  width: 240px;
 }
 
 .DashCard .DashCardContent {

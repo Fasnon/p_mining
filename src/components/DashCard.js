@@ -1,6 +1,8 @@
 import React from "react";
 import "../assets/styles/Dashboard.css";
 
+const gradentParams = ['#FF0000', '#FFC0CB', '#FFFFFF', '#90EE90', '#228B22'];
+
 const DashCard = (props) => {
   return (
     <div className="DashCard">
@@ -52,6 +54,7 @@ const DashCard = (props) => {
               <div className="DashCardTrendNum">
                 {props?.nTrend ? props.nTrend : "1000%"}
               </div>
+              
             </div>
           </div>
         </div>
