@@ -194,7 +194,7 @@ const Dashboard = () => {
       </header>
       <div className="BackToHome">
         <a href="/">
-          <img className="BackToHomeIcon" alt="Back" src="p_mining/images/back_to_home.svg" />
+          <img className="BackToHomeIcon" alt="Back" src="images/back_to_home.svg" />
           <div className="BackToHomeText">Back to home</div>
         </a>
       </div>
