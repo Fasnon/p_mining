@@ -114,3 +114,15 @@
   white-space: nowrap;
   width: 41px;
 }
+
+.PNode .STPRate {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 190px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 6px;
+}
