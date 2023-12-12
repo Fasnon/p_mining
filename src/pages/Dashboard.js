@@ -3,6 +3,7 @@ import "../assets/styles/Dashboard.css";
 import DashCard from "../components/DashCard";
 import ProcessNode from "../components/ProcessNode";
 import GroupNode from "../components/GroupNode";
+// import { getOpenAIResponse } from "../components/ChatGPT"
 import React, { useCallback, useState } from "react";
 import ReactFlow, {
   useNodesState,
@@ -46,7 +47,7 @@ function valuetext(value) {
 function valueLabelFormat(value) {
   return "";
 }
-
+// const response = await getOpenAIResponse()
 const initialNodes = [
   {
     id: "A",
@@ -546,6 +547,7 @@ const Dashboard = () => {
               <br/>
               <br/>
             In the recent performance metrics analysis, we observed significant changes across four key indicators. First, the Mean Throughput Time (Days) experienced a notable improvement as an additional 40 cases were processed within a swift timeframe of 2 days or less, resulting in a 23.8% decrease, reflecting enhanced efficiency in processing times. However, the STP Cases metric showed a contrasting trend with 29 more cases being processed through Straight Through Processing (STP) this week, but it marked a considerable 71.2% decrease. This discrepancy may warrant further investigation to understand the underlying factors influencing the STP process. On a positive note, the metric for Additional Manual Actions revealed a 25% decrease, indicating a reduction in the need for manual interventions in case processing, although this saw a slight uptick of 14.0%. Finally, Trade Volume experienced a substantial decline with 24,639 fewer cases processed this week, translating to a significant 41.2% decrease, reflecting a noteworthy shift in overall workload. These metrics collectively provide valuable insights into process efficiency, STP effectiveness, manual intervention requirements, and overall workload management, allowing us to make informed decisions to optimize our operational processes further.
+            {/* {response} */}
             </div>
 
           </div>
