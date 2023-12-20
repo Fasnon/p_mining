@@ -111,11 +111,11 @@
   margin-top: 2vh;
 }
 
-.Slider{
-  width: 15vw;
-  position: relative;
-  top: -28px;
-  left: 30vw;
+.Slider {
+  width: 200vw;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .HistoricalTrendBg {
