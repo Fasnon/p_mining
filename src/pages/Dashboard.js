@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Box from '@mui/material/Box';
-import DatePickerComponent from '../components/DatePicker'; 
+import DatePickerComponent from '../components/DatePickerComponent'; 
 
 import ReactFlow, {
   useNodesState,
@@ -213,6 +213,15 @@ const Dashboard = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const jsonData = require('../data/STP_Data.json');
 
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  // Callback function to update start and end dates
+  const handleDateChange = (newDates) => {
+    setStartDate(newDates[0]);
+    setEndDate(newDates[1]);
+  };
+
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],
@@ -242,9 +251,9 @@ const Dashboard = () => {
         />
         <DashCard
           title="STP Cases"
-          contentpre=""
-          contentmain="29 more cases"
-          contentpost=" were processed STP this week."
+          contentpre="29 cases "
+          contentmain={`between ${startDate} and ${endDate}.`}
+          contentpost=" processed STP."
           numeric="29%"
           nTrend="71.2%"
           trendPositive={true}
@@ -275,7 +284,7 @@ const Dashboard = () => {
       <div className="MainContainer">
         <div className="LeftColumnContainer">
           <div className="ColumnHeader">Transactions over Time</div>
-            <DatePickerComponent jsonData={jsonData} />
+            <DatePickerComponent jsonData={jsonData} onDateChange ={handleDateChange} />
           <div className="HistoricalTrendBg">
           <div className="HistoricalTrendChart">
               <Chart
