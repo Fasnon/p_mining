@@ -229,6 +229,12 @@ const Dashboard = () => {
         </a>
       </div>
       <div className="PageName">Equities Overview</div>
+      
+      
+      <div className="DatePickerContainer">
+          <DatePickerComponent jsonData={jsonData} />
+          </div>
+          
       <div className="CardBar">
         <DashCard
           title="Mean Throughput Time (Days)"
@@ -275,7 +281,6 @@ const Dashboard = () => {
       <div className="MainContainer">
         <div className="LeftColumnContainer">
           <div className="ColumnHeader">Transactions over Time</div>
-            <DatePickerComponent jsonData={jsonData} />
           <div className="HistoricalTrendBg">
           <div className="HistoricalTrendChart">
               <Chart

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { Handle, Position } from "reactflow";
 import Gradient from 'javascript-color-gradient';
 

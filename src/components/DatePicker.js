@@ -41,21 +41,21 @@ const DatePickerComponent = ({ jsonData }) => {
     return (
         <div className="Slider">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Box display="flex">
-              <Box marginRight={2}>
+            <Box display="flex" >
+              <Box marginRight={4} sx={{ width: 0.28}}>
                 <div>
-                  Earliest Date:
+                  Start Date
                 </div>
-                <DatePicker
+                <DatePicker slotProps={{ textField: { size: 'small' } }}
                   value={earliestDate}
                   onChange={(date) => setEarliestDate(date)}
                 />
               </Box>
-              <Box>
+              <Box sx={{  width: 0.28 }}>
                 <div>
-                  Latest Date:
+                  End Date
                 </div>
-                <DatePicker
+                <DatePicker slotProps={{ textField: { size: 'small' } }}
                   value={latestDate}
                   onChange={(date) => setLatestDate(date)}
                 />

@@ -112,10 +112,16 @@
 }
 
 .Slider {
-  width: 200vw;
-  padding: 40px;
+  width: 100vw;
+  padding: 0px;
   display: flex;
   justify-content: space-between;
+}
+
+.DatePickerContainer {
+  position: static;
+  padding-left: 30vw;
+  margin-top: -4vw;
 }
 
 .HistoricalTrendBg {
@@ -126,7 +132,6 @@
   border: 1px solid;
   border-color: #d8d8d8;
   border-radius: 10px;
-  margin-top: -32px;
 }
 
 .HistoricalTrendChart {
