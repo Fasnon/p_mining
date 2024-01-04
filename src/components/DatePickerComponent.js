@@ -7,7 +7,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { Box } from '@mui/material';
 import dayjs from 'dayjs';
 
-const DatePickerComponent = ({ jsonData }) => {
+const DatePickerComponent = ({ jsonData, onDateChange }) => {
     const [earliestDate, setEarliestDate] = useState(null);
     const [latestDate, setLatestDate] = useState(null);
   
@@ -37,6 +37,18 @@ const DatePickerComponent = ({ jsonData }) => {
   
       return { earliest: earliestDate, latest: latestDate };
     };
+
+    const handleDateChange = (newDate, isEarliest) => {
+      const updatedEarliest = isEarliest ? newDate : earliestDate;
+      const updatedLatest = isEarliest ? latestDate : newDate;
+  
+      setEarliestDate(updatedEarliest);
+      setLatestDate(updatedLatest);
+  
+      // Notify the parent component about the new date range
+      onDateChange([updatedEarliest, updatedLatest]);
+      console.log("New Date Range:", [updatedEarliest, updatedLatest]);
+    };
   
     return (
         <div className="Slider">
@@ -48,7 +60,7 @@ const DatePickerComponent = ({ jsonData }) => {
                 </div>
                 <DatePicker slotProps={{ textField: { size: 'small' } }}
                   value={earliestDate}
-                  onChange={(date) => setEarliestDate(date)}
+                  onChange={(date) => handleDateChange(date, true)}
                 />
               </Box>
               <Box sx={{  width: 0.28 }}>
@@ -57,7 +69,7 @@ const DatePickerComponent = ({ jsonData }) => {
                 </div>
                 <DatePicker slotProps={{ textField: { size: 'small' } }}
                   value={latestDate}
-                  onChange={(date) => setLatestDate(date)}
+                  onChange={(date) => handleDateChange(date, false)}
                 />
               </Box>
             </Box>
