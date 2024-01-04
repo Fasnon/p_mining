@@ -1,17 +1,27 @@
 const express = require('express');
+const cors = require("cors");
+const dayjs = require("dayjs");
 const app = express();
 const port = 5000;
+
+app.use(cors());
 
 // Serve your static JSON file
 app.get('/api/data', (req, res) => {
   const data = require('./data/STP_Data.json');
-  const { startDate, endDate } = req.query;
+  const { sDate, eDate } = req.query;
+  
+  if (sDate){
+    
+    const filteredData = data.filter(data => Date.parse(data.startDate) > dayjs(sDate));
+    
+    console.log()
+    res.json(filteredData)
+  }
+  else{
 
-  sDate = Date.parse(startDate);
-  eDate = Date.parse(endDate);
-
-
-  res.json(data);
+    res.json(data);
+  }
 });
 
 app.listen(port, () => {

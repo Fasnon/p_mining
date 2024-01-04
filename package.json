@@ -19,8 +19,10 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "javascript-color-gradient": "^2.4.4",
+    "live-server": "^1.1.0",
     "mui": "^0.0.1",
     "openai": "^4.20.1",
+    "querystring-es3": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-charts": "^4.0.1",
@@ -34,6 +36,8 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
+    "start-both": "concurrently \"npm run start-api\" \"npm start\" ",
+    "start-api": "node src/server/dummyserver.js",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

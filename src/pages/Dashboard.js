@@ -2,14 +2,13 @@ import "../assets/styles/App.css";
 import "../assets/styles/Dashboard.css";
 import DashCard from "../components/DashCard";
 import ProcessNode from "../components/ProcessNode";
-import GroupNode from "../components/GroupNode";
+
 import { getOpenAIResponse } from "../components/ChatGPT"
-import React, { useCallback, useState } from "react";
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import React, { useCallback, useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import DatePickerComponent from '../components/DatePickerComponent'; 
+import { findDateRange } from "../components/DatePickerComponent";
+import dayjs from "dayjs";
 
 import ReactFlow, {
   useNodesState,
@@ -21,205 +20,73 @@ import ReactFlow, {
 } from "reactflow";
 
 import { Chart } from "react-google-charts";
-import { Slider} from "@mui/material";
+import DonutChart from "../components/DonutChart";
 
 import "reactflow/dist/style.css";
 
-const nodeTypes = { processNode: ProcessNode };
+import { dummyedges as initialEdges, dummynodes as initialNodes } from "../components/ReactFlowElements";
 
-function valuetext(value) {
-  return ``;
-}
+const nodeTypes = { processNode: ProcessNode};
 
-function valueLabelFormat(value) {
-  return "";
-}
+// function valuetext(value) {
+//   return ``;
+// }
+
+// function valueLabelFormat(value) {
+//   return "";
+// }
 // const response = await getOpenAIResponse()
 const response = "hello, nice to meet you"
-const initialNodes = [
-  {
-    id: "A",
-    type: "groupNode",
-    data: {label: 'Trade Input/ Trade Bookings'},
-    position: { x: 0, y: 0 },
-    style: { backgroundColor: 'rgba(255, 0, 255, 0.2)', width: 320, height: 300, fontSize:20},
-  },
-  {
-    id: "B",
-    type: "groupNode",
-    data: {label: 'Matching in Market'},
-    position: { x: 0, y: 350 },
-    style: { backgroundColor: 'rgba(0, 255, 255, 0.2)', width: 320, height: 300,fontSize:20 },
-  },
-  {
-    id: "C",
-    type: "groupNode",
-    data: {label: 'Payments'},
-    position: { x: 400, y: 150 },
-    style: { backgroundColor: 'rgba(0, 0, 255, 0.2)', width: 320, height: 500, fontSize:20 },
-  },
-  {
-    id: "1",
-    type: "processNode",
-    position: { x: 50, y: 50 },
-    data: { label: "1", stepName: "Entry", count: "34,232", stpRate: 0.19},
-    parentNode: 'A',
-    extent: 'parent'
-  },
-  {
-    id: "2",
-    type: "processNode",
-    position: { x: 50, y: 200 },
-    data: { label: "2", stepName: "Position", count: "34,232", stpRate: 0.90 },
-    parentNode: 'A',
-    extent: 'parent'
-  },
-  {
-    id: "3",
-    type: "processNode",
-    position: { x: 50, y: 50 },
-    data: { label: "3", stepName: "Free Deal", count: "34,232", stpRate: 0.66 },
-    parentNode: 'B',
-    extent: 'parent'
-  },
-  {
-    id: "4",
-    type: "processNode",
-    position: { x: 50, y: 200 },
-    data: { label: "4", stepName: "Confirmed", count: "34,232", stpRate: 0.31 },
-    parentNode: 'B',
-    extent: 'parent'
-  },
-  {
-    id: "5",
-    type: "processNode",
-    position: { x: 50, y: 50 },
-    data: { label: "5", stepName: "Fin Calc", count: "34,232" , stpRate: 0.88},
-    parentNode: 'C',
-    extent: 'parent'
-  },
-  {
-    id: "6",
-    type: "processNode",
-    position: { x: 50, y: 200 },
-    data: { label: "6", stepName: "Under Settlement", count: "34,232" , stpRate: 0.73},
-    parentNode: 'C',
-    extent: 'parent'
-  },
-  {
-    id: "7",
-    type: "processNode",
-    position: { x: 50, y: 350 },
-    data: { label: "7", stepName: "Settled", count: "34,232", stpRate: 0.2 },
-    parentNode: 'C',
-    extent: 'parent'
-  }
-];
-const initialEdges = [
-  {
-    id: "e1-2",
-    source: "1",
-    target: "2",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "e2-3",
-    source: "2",
-    target: "3",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "e3-4",
-    source: "3",
-    target: "4",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "e4-5",
-    source: "4",
-    target: "5",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "e5-6",
-    source: "5",
-    target: "6",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "e6-7",
-    source: "6",
-    target: "7",
-    animated: "true",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-  },
-  {
-    id: "eA-B",
-    source: "A",
-    target: "B",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-      width: 20,
-      height: 20,
-      color: '#FF0072',
-    },
-    style: {
-      strokeWidth: 2,
-      stroke: '#FF0072',
-    },
-  },
-  {
-    id: "eB-C",
-    source: "B",
-    target: "C",
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-    },
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-      width: 20,
-      height: 20,
-      color: '#FF0072',
-    },
-    // label: 'can include some metrics if needed',
-    style: {
-      strokeWidth: 2,
-      stroke: '#FF0072',
-    },
-  }
-];
 
 const Dashboard = () => {
+  
+  // const fetchData = async() => {
+
+  //   console.log(jsonData)
+  //   return jsonData
+  // }
+  
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const jsonData = require('../data/STP_Data.json');
+  const [jsonData, setJsonData] = useState('');
+
+  // const jsonData = require('../server/data/STP_Data.json');
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
+  useEffect(() =>{
+    const initFetch = async() => {
+      const response = await fetch('http://localhost:5000/api/data');
+      const jsonData = await response.json();
+  
+      const data = require('../server/data/STP_Data.json');
+      // console.log(data)
+    
+      setJsonData(jsonData);
+      const [startD, endD] = findDateRange(jsonData)
+      setStartDate(startD);
+      console.log(startD)
+      setEndDate(endD);
+    }
+    initFetch();
+  }, []);
+
+
+
   // Callback function to update start and end dates
-  const handleDateChange = (newDates) => {
+  const handleDateChange = async (newDates) => {
     setStartDate(newDates[0]);
     setEndDate(newDates[1]);
+
+    
+    const response = await fetch(`http://localhost:5000/api/data?sDate=${dayjs(newDates[0]).format('YYYY-MM-DD')}&eDate=${dayjs(newDates[1]).format('YYYY-MM-DD')}`);
+    const jsonData = await response.json();
+
+    console.log(jsonData.length)
+    // await fetchData();
   };
 
   const onConnect = useCallback(
@@ -241,7 +108,8 @@ const Dashboard = () => {
       
       
       <div className="DatePickerContainer">
-          <DatePickerComponent jsonData={jsonData} />
+          <DatePickerComponent jsonData={jsonData} 
+                  onDateChange ={handleDateChange}/>
           </div>
           
       <div className="CardBar">
@@ -257,9 +125,13 @@ const Dashboard = () => {
         />
         <DashCard
           title="STP Cases"
-          contentpre="29 cases "
-          contentmain={`between ${startDate} and ${endDate}.`}
-          contentpost=" processed STP."
+          contentpre="There were "
+          contentmain = "29,120 cases between "
+          contentpost={
+            startDate
+              ? `${dayjs(startDate).format('DD-MM-YYYY')} and ${dayjs(endDate).format('DD-MM-YYYY')} processed STP.`
+              : 'Placeholder Text'
+          }
           numeric="29%"
           nTrend="71.2%"
           trendPositive={true}
@@ -415,107 +287,47 @@ const Dashboard = () => {
           <div className="ColumnHeader">Key Metrics</div>
           <div className="ReactFlowBg">
             <div className="ChartBar">
-              <div className="Chart">
-                <Chart
-                  chartType="PieChart"
-                  data={[
-                    ["Status", "Count"],
-                    ["yes", 9],
-                    ["no", 7],
-                    ["maybe", 6],
-                    ["perhaps", 5],
-                    ["aa", 3],
-                    ["other", 8],
-                  ]}
-                  options={{
-                    title: "Variant Counts",
-                    pieHole: 0.6,
-                    width: 340,
-                    height: 240,
-                    backgroundColor: { fill: "transparent" },
-                    legend: { position: "none" },
-                    pieSliceText: "none",
-                    colors: [
-                      "#729AC2",
-                      "#DF8B5B",
-                      "#68B279",
-                      "#C95D61",
-                      "#897BB8",
-                      "#D9D9D9",
-                    ],
-
-                    titleTextStyle: {
-                      color: "#000000",
-                      fontName: "IBM Plex Mono",
-                      fontSize: 14,
-                      bold: false,
-                      italic: false,
-                    },
-                    is3D: false,
-                  }}
-                />
-                <div className="ChartInsideText">14</div>
-              </div>
-              <div className="Chart">
-                <Chart
-                  chartType="PieChart"
-                  data={[
-                    ["Status", "Count"],
-                    ["STP", 29],
-                    ["Non-STP", 62],
-                  ]}
-                  options={{
-                    title: "STP Cases",
-                    pieHole: 0.6,
-                    width: 340,
-                    height: 240,
-                    backgroundColor: { fill: "transparent" },
-                    legend: { position: "none" },
-                    pieSliceText: "none",
-
-                    titleTextStyle: {
-                      color: "#000000",
-                      fontName: "IBM Plex Mono",
-                      fontSize: 14,
-                      bold: false,
-                      italic: false,
-                    },
-                    colors: ["#6AB451", "#D9D9D9"],
-                    is3D: false,
-                  }}
-                />
-                <div className="ChartInsideText">29/91</div>
-              </div>
-              <div className="Chart">
-                <Chart
-                  chartType="PieChart"
-                  data={[
-                    ["Status", "Count"],
-                    ["Longer than 3 days", 58],
-                    ["Shorter than 3 days", 22],
-                  ]}
-                  options={{
-                    title: "Cases > 3 Days",
-                    pieHole: 0.6,
-                    width: 340,
-                    height: 240,
-                    backgroundColor: { fill: "transparent" },
-                    legend: { position: "none" },
-                    pieSliceText: "none",
-
-                    titleTextStyle: {
-                      color: "#000000",
-                      fontName: "IBM Plex Mono",
-                      fontSize: 14,
-                      bold: false,
-                      italic: false,
-                    },
-                    colors: ["#C95D61", "#D9D9D9"],
-                    is3D: false,
-                  }}
-                />
-                <div className="ChartInsideText">58/80</div>
-              </div>
+              <DonutChart 
+                data={[
+                  ["Status", "Count"],
+                  ["yes", 9],
+                  ["no", 7],
+                  ["maybe", 6],
+                  ["perhaps", 5],
+                  ["aa", 3],
+                  ["other", 8],
+                ]}
+                title="Variant Counts"
+                colors={[
+                  "#729AC2",
+                  "#DF8B5B",
+                  "#68B279",
+                  "#C95D61",
+                  "#897BB8",
+                  "#D9D9D9",
+                ]}
+                text="14"
+              />
+              <DonutChart
+                data={[
+                  ["Status", "Count"],
+                  ["STP", 29],
+                  ["Non-STP", 62],
+                ]}
+                title="STP Cases"
+                colors={["#6AB451", "#D9D9D9"]}
+                text="29/91"
+              />
+              <DonutChart
+                data={[
+                  ["Status", "Count"],
+                  ["Longer than 3 days", 58],
+                  ["Shorter than 3 days", 22],
+                ]}
+                title="Cases > 3 Days"
+                colors={["#C95D61", "#D9D9D9"]}
+                text="58/80"
+              />
             </div>
             <div className="ReportToCFO">
               <span className="ReportToCFOTitle">Quick Summary</span>

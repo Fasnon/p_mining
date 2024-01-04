@@ -177,7 +177,6 @@
 
 .DashCard {
   left: auto;
-  background-color: #ffffff;
   height: 132px;
   width: 352px;
   margin-left: 7.5vh;
@@ -209,7 +208,7 @@
   border-radius: 10px;
   height: 129px;
   position: relative;
-  width: 298px;
+  width: 320px;
 }
 
 .DashCard .DashCardTitle {
@@ -235,7 +234,7 @@
   line-height: normal;
   position: absolute;
   top: 76px;
-  width: 253px;
+  width: 272px;
 }
 
 .DashCard .DashCardContentPre {
