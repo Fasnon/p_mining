@@ -28,7 +28,6 @@
   position: relative;
 }
 
-
 .BackToHome .BackToHomeIcon {
   height: 16px;
   left: 0;
@@ -264,10 +263,10 @@
 
 .DashCard .DashCardNumGroupWrapper {
   height: 30px;
-  left: 84px;
+  left: 100px;
   position: absolute;
-  top: 43px;
-  width: 107px;
+  top: 46px;
+  width: 108px;
 }
 
 .DashCard .DashCardNumGroup {

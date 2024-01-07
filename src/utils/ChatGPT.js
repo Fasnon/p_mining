@@ -5,9 +5,9 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: "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",
-  dangerouslyAllowBrowser: true // Replace with your actual OpenAI API key
+  dangerouslyAllowBrowser: true, // Replace with your actual OpenAI API key
 });
-let Gptresponse = '';
+let Gptresponse = "";
 
 async function getOpenAIResponse() {
   try {
@@ -20,7 +20,7 @@ async function getOpenAIResponse() {
     Gptresponse = completion.choices[0].message.content;
     return Gptresponse;
   } catch (error) {
-    console.error('Error:', error.message);
+    console.error("Error:", error.message);
     throw error; // Propagate the error
   }
 }

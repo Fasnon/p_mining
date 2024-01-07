@@ -52,7 +52,6 @@ const DashCard = (props) => {
               <div className="DashCardTrendNum">
                 {props?.nTrend ? props.nTrend : "1000%"}
               </div>
-              
             </div>
           </div>
         </div>
