@@ -1,6 +1,6 @@
 import { MarkerType } from "reactflow";
 
-const originalNodes = [
+export const originalNodes = [
   {
     id: "A",
     type: "groupNode",
@@ -100,7 +100,7 @@ const originalNodes = [
   },
 ];
 
-const originalEdges = [
+export const originalEdges = [
   {
     id: "entry-position",
     source: "entry",
@@ -108,7 +108,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -120,7 +120,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -132,7 +132,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -144,7 +144,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -156,7 +156,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -168,7 +168,7 @@ const originalEdges = [
     sourceHandle: "bottom-from",
     targetHandle: "top-to",
     label: "0",
-    animated: "true",
+    animated: false,
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -237,7 +237,7 @@ export default async function IdealWorkFlowCalculations(data) {
             sourceHandle: "bottom-from",
             targetHandle: "top-to",
             label: "1",
-            animated: "true",
+            animated: false,
           });
           // console.log(previousTransact + "-" + transaction.transactionStatus.replace(/\s/g, ''))
         } else {

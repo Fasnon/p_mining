@@ -1,0 +1,165 @@
+.Dashboard-header {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 100%
+  );
+  overflow: hidden;
+  text-align: left;
+  height: 200px;
+  width: 100vw;
+
+  box-shadow: 0px 3px rgba(124, 124, 124);
+}
+
+.Dashboard-header h3 {
+  font-family: "Bebas Neue";
+  color: #3d3552;
+  font-size: 64px;
+  margin-top: 48px;
+  margin-left: 64px;
+  margin-bottom: 8px;
+}
+
+.Dashboard-header p {
+  margin-top: 0px;
+  font-family: "Inter";
+  color: #424242;
+  font-size: 24px;
+  margin-left: 64px;
+}
+
+.BackToHome {
+  margin-left: 64px;
+  margin-top: 24px;
+  height: 24px;
+  left: 0;
+  top: 0;
+  width: 156px;
+  position: relative;
+}
+
+.BackToHome .BackToHomeIcon {
+  height: 16px;
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 16px;
+}
+
+.BackToHome .BackToHomeText {
+  color: #424242;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 18px;
+  font-weight: 500;
+  left: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.PageName {
+  color: #000000;
+  margin-left: 64px;
+  margin-top: 4px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 36px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 0;
+  white-space: nowrap;
+  width: 341px;
+}
+
+.QuickClicks {
+  position: relative;
+  margin-left: 520px;
+  margin-top: -40px;
+  padding-left: 0;
+}
+
+.DatePickerContainer {
+  position: static;
+  padding-left: 720px;
+  margin-top: -64px;
+}
+
+.container {
+  display: inline-flex;
+  margin-top: 32px;
+  width: 100vw;
+}
+
+.side {
+  flex: 2;
+  background-color: #889088;
+  overflow: scroll;
+  margin-right: 120px;
+  margin-left: 220px;
+  height: 800px;
+  width: 906px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.sideContent {
+  scale: 1;
+  position: relative;
+  padding-top: 2%;
+  transform-origin: 0 0;
+  padding: 2%;
+}
+
+.zoomIn {
+  margin-top: 40px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+  line-height: 26px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+
+}
+
+.zoomOut {
+  margin-left: 36px;
+  position:relative;
+  right: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+  line-height: 26px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+
+}
+
+.sidebar {
+  flex: 1;
+  height: 100vh;
+}
+
+.sidebar p {
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 18px;
+  color: #333333;
+  margin-top: 0;
+}

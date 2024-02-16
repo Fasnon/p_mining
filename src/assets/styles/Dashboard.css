@@ -1,26 +1,36 @@
 .Dashboard-header {
   background: linear-gradient(
-    142deg,
-    rgba(64, 19, 87, 1) 0%,
-    rgba(144, 98, 168, 1) 100%
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 100%
   );
   overflow: hidden;
-  vertical-align: top;
   text-align: left;
-  padding-left: 10vh;
-  padding-top: 1vh;
-  height: 16vh;
+  height: 180px;
+
+  box-shadow: 0px 3px rgba(124, 124, 124);
 }
 
 .Dashboard-header h3 {
-  font-family: "KoHo", sans-serif;
-  color: #ffffff;
-  font-size: 60px;
+  font-family: "Bebas Neue";
+  color: #3d3552;
+  font-size: 64px;
+  margin-top: 48px;
+  margin-left: 64px;
+  margin-bottom: 8px;
+}
+
+.Dashboard-header p {
+  margin-top: 0px;
+  font-family: "Inter";
+  color: #424242;
+  font-size: 24px;
+  margin-left: 64px;
 }
 
 .BackToHome {
   margin-left: 64px;
-  margin-top: 20px;
+  margin-top: 24px;
   height: 24px;
   left: 0;
   top: 0;
@@ -32,20 +42,20 @@
   height: 16px;
   left: 0;
   position: absolute;
-  top: 1px;
+  top: 0px;
   width: 16px;
 }
 
 .BackToHome .BackToHomeText {
   color: #424242;
   font-family: "Inter-Medium", Helvetica;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
-  left: 23px;
+  left: 18px;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
-  top: 0;
+  top: -1px;
   white-space: nowrap;
 }
 
@@ -117,10 +127,16 @@
   justify-content: space-between;
 }
 
+.QuickClicks {
+  position: relative;
+  padding-left: 480px;
+  margin-top: -40px;
+}
+
 .DatePickerContainer {
   position: static;
-  padding-left: 30vw;
-  margin-top: -4vw;
+  padding-left: 540px;
+  margin-top: -64px;
 }
 
 .HistoricalTrendBg {
@@ -148,30 +164,19 @@
   border-radius: 10px;
 }
 
-.ChartBar {
-  width: 42vw;
-  height: 120px;
-  display: flex;
-  margin-left: 6vw;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 2vh;
-}
-
 .Chart {
   position: relative;
-  width: 20vw;
-  height: 120px;
-  margin-left: -6vw;
-}
-
-.ChartInsideText {
-  top: 110px;
-  left: 148px;
-  position: absolute;
-  width: 40px;
-  height: 20px;
+  display: block;
   text-align: center;
+}
+.ChartText {
+  position: absolute;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .DashCard {

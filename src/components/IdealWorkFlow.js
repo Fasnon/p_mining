@@ -14,31 +14,34 @@ import ReactFlow, {
   MarkerType,
 } from "reactflow";
 
-import IdealWorkFlowCalculations from "../utils/IdealWorkFlowCalculations";
+import {
+  originalEdges,
+  originalNodes,
+} from "../utils/IdealWorkFlowCalculations";
 const nodeTypes = { processNode: ProcessNode };
 
-var initialEdges = [];
-var initialNodes = [];
+var initialEdges = originalEdges;
+var initialNodes = originalNodes;
 
 function IdealWorkFlow({ data }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  useEffect(() => {
-    const updateNodes = async () => {
-      console.log("on change");
-      console.log(data);
-      if (data) {
-        console.log("ss");
-        await IdealWorkFlowCalculations(data).then((nodesAndEdges) => {
-          console.log(nodesAndEdges);
-          setNodes(nodesAndEdges[0]);
-          setEdges(nodesAndEdges[1]);
-        });
-      }
-    };
-    updateNodes();
-  }, [data]);
+  // useEffect(() => {
+  //   const updateNodes = async () => {
+  //     console.log("on change");
+  //     console.log(data);
+  //     if (data) {
+  //       console.log("ss");
+  //       await IdealWorkFlowCalculations(data).then((nodesAndEdges) => {
+  //         console.log(nodesAndEdges);
+  //         setNodes(nodesAndEdges[0]);
+  //         setEdges(nodesAndEdges[1]);
+  //       });
+  //     }
+  //   };
+  //   updateNodes();
+  // }, [data]);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),

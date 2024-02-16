@@ -109,5 +109,240 @@
         "transactionStatus": "settled"
       }
     ]
+  },
+  {
+    "businessInternalKey": "721",
+    "stpStatus": "yes",
+    "startDate": "2023-02-01T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "999",
+        "creationDate": "2023-02-01T08:30:00",
+        "changeDate": "2023-02-01T08:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "777",
+        "creationDate": "2023-02-01T08:30:01",
+        "changeDate": "2023-02-01T08:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "888",
+        "creationDate": "2023-02-01T08:30:02",
+        "changeDate": "2023-02-02T08:30:02",
+        "transactionStatus": "free deal"
+      },
+      {
+        "transactionInternalKey": "555",
+        "creationDate": "2023-02-02T08:30:03",
+        "changeDate": "2023-02-02T08:30:04",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "444",
+        "creationDate": "2023-02-02T08:31:02",
+        "changeDate": "2023-02-02T08:31:02",
+        "transactionStatus": "fin calc"
+      },
+      {
+        "transactionInternalKey": "333",
+        "creationDate": "2023-02-02T08:31:03",
+        "changeDate": "2023-02-02T08:31:04",
+        "transactionStatus": "under settlement"
+      },
+      {
+        "transactionInternalKey": "222",
+        "creationDate": "2023-02-03T08:31:04",
+        "changeDate": "2023-02-03T08:31:04",
+        "transactionStatus": "settled"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "654",
+    "stpStatus": "yes",
+    "startDate": "2023-02-15T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "123",
+        "creationDate": "2023-02-15T08:30:00",
+        "changeDate": "2023-02-15T08:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "456",
+        "creationDate": "2023-02-15T08:30:01",
+        "changeDate": "2023-02-15T08:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "789",
+        "creationDate": "2023-02-15T08:30:02",
+        "changeDate": "2023-02-15T08:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "987",
+        "creationDate": "2023-02-15T08:30:02",
+        "changeDate": "2023-02-15T08:30:03",
+        "transactionStatus": "free deal"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "987",
+    "stpStatus": "no",
+    "startDate": "2023-03-01T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "555",
+        "creationDate": "2023-03-01T08:30:00",
+        "changeDate": "2023-03-01T10:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "666",
+        "creationDate": "2023-03-01T10:30:01",
+        "changeDate": "2023-03-01T10:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "777",
+        "creationDate": "2023-03-01T10:30:02",
+        "changeDate": "2023-03-01T10:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "888",
+        "creationDate": "2023-03-01T10:30:02",
+        "changeDate": "2023-03-01T10:30:03",
+        "transactionStatus": "free deal"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "333",
+    "stpStatus": "yes",
+    "startDate": "2023-03-15T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "111",
+        "creationDate": "2023-03-15T08:30:00",
+        "changeDate": "2023-03-15T08:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "222",
+        "creationDate": "2023-03-15T08:30:01",
+        "changeDate": "2023-03-15T08:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "444",
+        "creationDate": "2023-03-15T08:30:02",
+        "changeDate": "2023-03-15T08:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "333",
+        "creationDate": "2023-03-15T08:30:02",
+        "changeDate": "2023-03-15T08:30:03",
+        "transactionStatus": "free deal"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "222",
+    "stpStatus": "yes",
+    "startDate": "2024-01-03T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "999",
+        "creationDate": "2024-01-03T08:30:00",
+        "changeDate": "2024-01-03T08:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "888",
+        "creationDate": "2024-01-03T08:30:01",
+        "changeDate": "2024-01-03T08:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "777",
+        "creationDate": "2024-01-03T08:30:02",
+        "changeDate": "2024-01-05T14:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "666",
+        "creationDate": "2024-01-05T14:30:02",
+        "changeDate": "2024-01-05T08:30:03",
+        "transactionStatus": "free deal"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "111",
+    "stpStatus": "no",
+    "startDate": "2024-01-03T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "123",
+        "creationDate": "2024-01-03T08:30:00",
+        "changeDate": "2024-01-03T08:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "456",
+        "creationDate": "2024-01-03T08:30:01",
+        "changeDate": "2024-01-03T08:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "789",
+        "creationDate": "2024-01-03T08:30:02",
+        "changeDate": "2024-01-03T08:30:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "987",
+        "creationDate": "2024-01-03T08:30:00",
+        "changeDate": "2024-01-04T11:30:42",
+        "transactionStatus": "free deal"
+      }
+    ]
+  },
+  {
+    "businessInternalKey": "450",
+    "stpStatus": "no",
+    "startDate": "2024-01-01T08:30:00",
+    "transactions": [
+      {
+        "transactionInternalKey": "555",
+        "creationDate": "2024-01-01T08:30:00",
+        "changeDate": "2024-01-01T10:30:01",
+        "transactionStatus": "entry"
+      },
+      {
+        "transactionInternalKey": "666",
+        "creationDate": "2024-01-01T10:30:01",
+        "changeDate": "2024-01-01T10:30:02",
+        "transactionStatus": "confirmed"
+      },
+      {
+        "transactionInternalKey": "777",
+        "creationDate": "2024-01-01T10:30:02",
+        "changeDate": "2024-01-03T10:45:02",
+        "transactionStatus": "position"
+      },
+      {
+        "transactionInternalKey": "888",
+        "creationDate": "2024-01-04T10:30:02",
+        "changeDate": "2024-01-06T10:30:03",
+        "transactionStatus": "free deal"
+      }
+    ]
   }
 ]

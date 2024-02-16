@@ -1,0 +1,168 @@
+.ReportPage {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.page-index {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 906px;
+}
+
+.page-index .page-group-wrapper {
+  background-color: #ffffff;
+  height: 1066px;
+  width: 906px;
+}
+
+.page-index .page-group {
+  background-image: url(https://cdn.animaapp.com/projects/6549fcc3601e07d4643c99b8/releases/65c433447fc157c12e4181e1/img/rectangle-39.png);
+  background-size: 40% 40%;
+  height: 1000px;
+  position: relative;
+}
+
+.page-index .header {
+  height: 26px;
+  left: 35px;
+  position: absolute;
+  top: 23px;
+  width: 800px;
+}
+
+.page-index .header-report-name {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  width: 277px;
+  left: 8px;
+}
+
+.page-index .header-right {
+  height: 22px;
+  left: 421px;
+  position: absolute;
+  top: 0;
+  width: 125px;
+}
+
+.page-index .header-section-name {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 1px;
+  width: 125px;
+}
+
+.page-index .header-vertical-separator {
+  height: 20px;
+  left: 23px;
+  position: absolute;
+  top: -1px;
+  width: 2px;
+}
+
+.page-index .header-page-number {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 765px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  width: 42px;
+}
+
+.page-index .header-horizontal-line {
+  height: 2px;
+  left: 40px;
+  position: absolute;
+  top: -2px;
+  width: 756px;
+}
+
+.page-index .footer {
+  height: 27px;
+  left: 74px;
+  position: absolute;
+  top: 1030px;
+  width: 757px;
+}
+
+.page-index .footer-text {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 239px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 277px;
+}
+
+.page-index .footer-line {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: -2px;
+  width: 755px;
+}
+
+.page-index .main-rectangle {
+  background-color: #2e5267;
+  height: 8px;
+  left: 76px;
+  position: absolute;
+  top: 106px;
+  width: 128px;
+}
+
+.page-index .main-title {
+  color: #2f2f2f;
+  font-family: "Bebas Neue", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  left: 75px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 28px;
+  white-space: nowrap;
+  width: 380px;
+}
+
+.page-index .main-date {
+  color: #242424;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+  left: 632px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 75px;
+  width: 220px;
+}
