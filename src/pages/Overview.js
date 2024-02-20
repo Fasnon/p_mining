@@ -86,7 +86,7 @@ const Overview = () => {
           <img
             className="BackToHomeIcon"
             alt="Back"
-            src="/images/back_to_home.svg"
+            src="images/back_to_home.svg"
           />
           <div className="BackToHomeText">Back to home</div>
         </a>

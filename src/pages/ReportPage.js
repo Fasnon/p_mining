@@ -18,7 +18,7 @@ const ReportPage = (props) => {
                 <img
                   className="header-vertical-separator"
                   alt="Separator"
-                  src="/images/header-vertical-separator.svg"
+                  src="images/header-vertical-separator.svg"
                 />
               </div>
               <div className="header-page-number">
@@ -27,7 +27,7 @@ const ReportPage = (props) => {
               <img
                 className="header-horizontal-line"
                 alt="Line"
-                src="/images/header-horizontal-line.svg"
+                src="images/header-horizontal-line.svg"
               />
             </div>
             <div className="footer">
@@ -37,7 +37,7 @@ const ReportPage = (props) => {
               <img
                 className="footer-line"
                 alt="Line"
-                src="/images/footer-line.svg"
+                src="images/footer-line.svg"
               />
             </div>
             <div className="main-rectangle" />
