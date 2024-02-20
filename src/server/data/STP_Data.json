@@ -23,9 +23,15 @@
         "transactionStatus": "free deal"
       },
       {
+        "transactionInternalKey": "124",
+        "creationDate": "2023-04-01T08:30:02",
+        "changeDate": "2023-04-02T08:30:07",
+        "transactionStatus": "position"
+      },
+      {
         "transactionInternalKey": "789",
-        "creationDate": "2023-04-02T08:30:03",
-        "changeDate": "2023-04-02T08:30:04",
+        "creationDate": "2023-04-02T08:30:07",
+        "changeDate": "2023-04-02T08:30:14",
         "transactionStatus": "confirmed"
       },
       {

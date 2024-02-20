@@ -2,14 +2,91 @@ import ReportPage from "./ReportPage";
 import DonutChart from "../components/DonutChart";
 
 import Chart from "react-google-charts";
+import dayjs from "dayjs";
+
+import { useEffect, useState } from "react";
+import { getCounts, getThroughputTime, getVariantCounts } from "../server/filereadserver";
 
 import "../assets/styles/Report.css";
 
 const KeyMetricsReport = (props) => {
+  const [STP_count, setSTP_count] = useState(0);
+  const [nonSTP_count, setNonSTP_count] = useState(0);
+  const [total_count, setTotal_count] = useState(0);
+
+  const [meanThroughputTime, setMeanThroughputTime] = useState(0);
+  const [timeCounts, setTimeCounts] = useState([0, 0, 0, 0, 0, 0]);
+
+  const [variantCounts, setVariantCounts] = useState(["placeholder", 0]);
+
+  useEffect(() => {
+    const counts = getCounts({ sDate: props.startDate, eDate: props.endDate });
+
+    setSTP_count(counts["STP_count"]);
+    setNonSTP_count(counts["nonSTP_count"]);
+    setTotal_count(counts["total_count"]);
+
+    const throughputTimes = getThroughputTime({
+      sDate: props.startDate,
+      eDate: props.endDate,
+    });
+
+    setMeanThroughputTime(throughputTimes["MeanThroughputTime"]);
+    setTimeCounts(throughputTimes["timeCounts"]);
+
+    
+    const variantCounts = getVariantCounts({
+      sDate: props.startDate,
+      eDate: props.endDate,
+    });
+    var result = [];
+    
+    for(var i in variantCounts)
+        result.push([i, variantCounts [i]]);
+    setVariantCounts(result)
+    console.log([
+      ["Status", "Count"]].concat(result))
+
+  }, []);
+
+  useEffect(() => {
+    const counts = getCounts({ sDate: props.startDate, eDate: props.endDate });
+
+    setSTP_count(counts["STP_count"]);
+    setNonSTP_count(counts["nonSTP_count"]);
+    setTotal_count(counts["total_count"]);
+
+    const throughputTimes = getThroughputTime({
+      sDate: props.startDate,
+      eDate: props.endDate,
+    });
+
+    setMeanThroughputTime(throughputTimes["MeanThroughputTime"]);
+    setTimeCounts(throughputTimes["timeCounts"]);
+
+    
+    const variantCounts = getVariantCounts({
+      sDate: props.startDate,
+      eDate: props.endDate,
+    });
+    var result = [];
+    
+    for(var i in variantCounts)
+        result.push([i, variantCounts [i]]);
+    setVariantCounts(result)
+    console.log([
+      ["Status", "Count"]].concat(result))
+
+  }, [props.startDate, props.endDate]);
+
   return (
     <>
       <div className="dummy-container">
-        <ReportPage section="Key Metrics"></ReportPage>
+        <ReportPage
+          section="Key Metrics"
+          startDate={dayjs(props.startDate).format("DD-MM-YYYY")}
+          endDate={dayjs(props.endDate).format("DD-MM-YYYY")}
+        ></ReportPage>
         <div className="dummy-overlay">
           <div className="section-header">
             <div className="rectangle" />
@@ -19,14 +96,8 @@ const KeyMetricsReport = (props) => {
           <div className="ChartBar">
             <DonutChart
               data={[
-                ["Status", "Count"],
-                ["yes", 9],
-                ["no", 7],
-                ["maybe", 6],
-                ["perhaps", 5],
-                ["aa", 3],
-                ["other", 8],
-              ]}
+                ["Status", "Count"]].concat(variantCounts)
+              }
               title="Variant Counts"
               colors={[
                 "#729AC2",
@@ -36,32 +107,44 @@ const KeyMetricsReport = (props) => {
                 "#897BB8",
                 "#D9D9D9",
               ]}
-              text="14"
+              text={variantCounts.length}
             />
             <DonutChart
               data={[
                 ["Status", "Count"],
-                //   ["STP", STP_count],
-                //   ["Non-STP", nonSTP_count],
-                ["STP", 77],
-                ["Non-STP", 34],
+                ["STP", STP_count],
+                ["Non-STP", nonSTP_count],
+                // ["STP", 77],
+                // ["Non-STP", 34],
               ]}
               title="STP Cases"
               colors={["#6AB451", "#D9D9D9"]}
-              text={77 + "/" + 111}
+              text={STP_count + "/" + total_count}
             />
             <DonutChart
               data={[
                 ["Status", "Count"],
-                //   ["Longer than 3 days", total_count - LessThreeDays_count],
-                //   ["Shorter than 3 days", LessThreeDays_count],
-                ["Longer than 3 days", 42],
-                ["Shorter than 3 days", 4],
+                [
+                  "Longer than 5 days",
+                  timeCounts[3] + timeCounts[4] + timeCounts[5],
+                ],
+                [
+                  "Shorter than 5 days",
+                  timeCounts[0] + timeCounts[1] + timeCounts[2],
+                ],
+                // ["Longer than 3 days", 42],
+                // ["Shorter than 3 days", 4],
               ]}
-              title="Cases > 3 Days"
+              title="Cases > 5 Days"
               colors={["#C95D61", "#D9D9D9"]}
               // text={total_count - LessThreeDays_count + "/" + total_count}
-              text={54 + "/" + 6}
+              text={
+                timeCounts[3] +
+                timeCounts[4] +
+                timeCounts[5] +
+                "/" +
+                total_count
+              }
             />
           </div>
           <div className="section-header">
@@ -134,7 +217,12 @@ const KeyMetricsReport = (props) => {
       </div>
       <br />
       <div className="dummy-container">
-        <ReportPage section="Workflow" pageNumber="02"></ReportPage>
+        <ReportPage
+          section="Workflow"
+          pageNumber="02"
+          startDate={dayjs(props.startDate).format("DD-MM-YYYY")}
+          endDate={dayjs(props.endDate).format("DD-MM-YYYY")}
+        ></ReportPage>
 
         <div className="dummy-overlay">
           <div className="section-header">

@@ -1,98 +1,98 @@
-.indiv{
+.indiv {
   position: relative;
 }
 
 .indiv .card-group {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    margin-bottom: 24px;
-  }
-  
-  .indiv .card-title {
-    color: #222222;
-    font-family: "Inter", Helvetica;
-    font-size: 16px;
-    font-weight: 500;
-    left: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    white-space: nowrap;
-    width: 140px;
-  }
-  
-  .indiv .card-main-value {
-    color: #000000;
-    font-family: "IBM Plex Mono", Helvetica;
-    font-size: 22px;
-    font-weight: 600;
-    left: 23px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 30px;
-    width: 58px;
-  }
-  
-  .indiv .change-overlay {
-    right: 0;
-    background-color: #F7EFEF;
-    position: absolute;
-    height: 100%;
-    width: 45%;
-    border-radius: 6px;
-  }
-  
-  .indiv .streamline-money {
-    height: 20px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 19px;
-  }
-  
-  .indiv .change-value {
-    color: #0d0d0d;
-    font-family: "IBM Plex Mono", Helvetica;
-    font-size: 15px;
-    font-weight: 600;
-    left: 35px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0;
-    width: 56px;
-  }
-  
-  .indiv .rectangle {
-    background-color: #2e5967;
-    height: 59px;
-    left: 0;
-    top: 0;
-    width: 12px;
-  }
-  
-  .indiv .ChartBar {
-    position: relative;
-  }
-  
-  .indiv .indicator-icon{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-left: 16px;
-  }
-  
-  .indiv .indicator-text{
-    position: absolute;
-    width: 70%;
-    right: 24px;
-    top: 10px;
-    color: #976767;
-    font-family: "Inter", Helvetica;
-    font-weight: 300;
-    letter-spacing: 0;
-    font-size: 18px;
-    line-height: normal;
-  }
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.indiv .card-title {
+  color: #222222;
+  font-family: "Inter", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.indiv .card-main-value {
+  color: #000000;
+  font-family: "IBM Plex Mono", Helvetica;
+  font-size: 22px;
+  font-weight: 600;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 58px;
+}
+
+.indiv .change-overlay {
+  right: 0;
+  background-color: #f7efef;
+  position: absolute;
+  height: 100%;
+  width: 45%;
+  border-radius: 6px;
+}
+
+.indiv .streamline-money {
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 19px;
+}
+
+.indiv .change-value {
+  color: #0d0d0d;
+  font-family: "IBM Plex Mono", Helvetica;
+  font-size: 15px;
+  font-weight: 600;
+  left: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.indiv .rectangle {
+  background-color: #2e5967;
+  height: 59px;
+  left: 0;
+  top: 0;
+  width: 12px;
+}
+
+.indiv .ChartBar {
+  position: relative;
+}
+
+.indiv .indicator-icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 16px;
+}
+
+.indiv .indicator-text {
+  position: absolute;
+  width: 70%;
+  right: 24px;
+  top: 10px;
+  color: #976767;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  letter-spacing: 0;
+  font-size: 18px;
+  line-height: normal;
+}

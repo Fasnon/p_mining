@@ -3,7 +3,6 @@ import Gradient from "javascript-color-gradient";
 
 import "../assets/styles/FlowChart.css";
 
-const handleStyle = { left: 10 };
 
 const gradentParams = ["#EC6060", "#FFC0CB", "#FFFFFF", "#D4FADF", "#90EE90"];
 const colorCellFromValue = (params, value, midpoint = 31) => {
@@ -21,13 +20,14 @@ function ProcessNode({ data }) {
         <div
           className="PNodeStart"
           style={{
-            backgroundColor: colorCellFromValue(
+            backgroundColor: data.indiv? "#FFFFFF": 
+            colorCellFromValue(
               gradentParams,
               data.stpRate ? data.stpRate : 0.5,
             ),
           }}
         >
-          <div className="ButtonBar">
+          {/* <div className="ButtonBar">
             <div className="FocusButtonWrapper">
               <button className="FocusButton">
                 <div className="FocusButtonText">Focus</div>
@@ -38,7 +38,7 @@ function ProcessNode({ data }) {
                 <div className="ExcludeButtonText">Exclude</div>
               </button>
             </div>
-          </div>
+          </div> */}
 
           <div className="PNodeCount">{data.count ? data.count : "0"}</div>
           <img className="line" alt="Line" src="images/node_line.svg" />
@@ -50,10 +50,10 @@ function ProcessNode({ data }) {
             {data.stpRate ? Math.round(data.stpRate * 100) + "%" : "50%"}
           </div>
         </div>
-        <Handle type="source" position={Position.Top} id="top-from" />
-        <Handle type="target" position={Position.Top} id="top-to" />
-        <Handle type="source" position={Position.Bottom} id="bottom-from" />
-        <Handle type="target" position={Position.Bottom} id="bottom-to" />
+        <Handle type="source" position={Position.Top} id="top-from" isConnectable="false"/>
+        <Handle type="target" position={Position.Top} id="top-to"isConnectable="false" />
+        <Handle type="source" position={Position.Bottom} id="bottom-from"isConnectable="false" />
+        <Handle type="target" position={Position.Bottom} id="bottom-to"isConnectable="false" />
       </div>
     </>
   );

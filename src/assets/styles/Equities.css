@@ -129,13 +129,14 @@
   color: #2d3748;
   border: 1px solid #cbd5e0;
   line-height: 26px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
-
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .zoomOut {
   margin-left: 36px;
-  position:relative;
+  position: relative;
   right: 0;
   outline: 0;
   border: 0;
@@ -148,8 +149,9 @@
   color: #2d3748;
   border: 1px solid #cbd5e0;
   line-height: 26px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
-
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .sidebar {
@@ -162,4 +164,33 @@
   font-size: 18px;
   color: #333333;
   margin-top: 0;
+}
+
+.flowchart-hover {
+  margin-top: 32px;
+  font-family: "Inter";
+  color: #000000;
+  font-size: 16px;
+  width: 75%;
+  display: flex;
+  position: relative;
+}
+
+.flowchart-hover p {
+  position: relative;
+  font-family: "Inter";
+  color: #000000;
+  font-size: 18px;
+  width: 75%;
+  display: inline-block;
+  margin-top: 18px;
+  margin-left: 4px;
+}
+
+.flowchart-hover-body {
+  margin-left: 2px;
+  font-family: "Inter";
+  color: #000000;
+  font-size: 16px;
+  width: 75%;
 }

@@ -42,7 +42,10 @@ const ReportPage = (props) => {
             </div>
             <div className="main-rectangle" />
             <p className="main-title">Equities - insights and analysis</p>
-            <div className="main-date">01-02-2024 to 07-02-2024</div>
+            <div className="main-date">
+              {props?.startDate ? props.startDate : "01-02-2024"} to{" "}
+              {props?.startDate ? props.endDate : "07-02-2024"}{" "}
+            </div>
           </div>
         </div>
       </div>

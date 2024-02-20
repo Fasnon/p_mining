@@ -3,8 +3,12 @@ import React, { useState, useEffect } from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { Box } from "@mui/material";
+import {
+  Box,
+  getListItemSecondaryActionClassesUtilityClass,
+} from "@mui/material";
 import dayjs from "dayjs";
+import { getData } from "../server/filereadserver";
 
 export const findDateRange = (data) => {
   let earliestDate = null;
@@ -34,8 +38,9 @@ const DatePickerComponent = ({ onDateChange }) => {
   const fetchDates = async () => {
     let earliest = dayjs("2023-12-01");
     let latest = dayjs("2024-01-01");
-    const response = await fetch("http://localhost:5000/api/data");
-    const jsonData = await response.json();
+    // const response = await fetch("http://localhost:5000/api/data");
+
+    const jsonData = getData();
     if (jsonData) {
       [earliest, latest] = findDateRange(jsonData);
     }
@@ -59,25 +64,29 @@ const DatePickerComponent = ({ onDateChange }) => {
     console.log("New Date Range:", [updatedEarliest, updatedLatest]);
   };
 
-  const setData = (timeframe) => {
-    fetchDates().then(() => {
-      if (timeframe == "7D") {
-        setEarliestDate(dayjs(latestDate).subtract(7, "day"));
-        onDateChange([dayjs(latestDate).subtract(7, "day"), latestDate]);
-      }
-      if (timeframe == "4W") {
-        setEarliestDate(dayjs(latestDate).subtract(4, "week"));
-        onDateChange([dayjs(latestDate).subtract(4, "week"), latestDate]);
-      }
-      if (timeframe == "3M") {
-        setEarliestDate(dayjs(latestDate).subtract(3, "month"));
-        onDateChange([dayjs(latestDate).subtract(3, "month"), latestDate]);
-      }
-      if (timeframe == "AT") {
-        onDateChange([earliestDate, latestDate]);
-      }
-    });
-    console.log(timeframe);
+  const setData = async (timeframe) => {
+    let earliest = dayjs("2023-12-01");
+    let latest = dayjs("2024-01-01");
+    // const response = await fetch("http://localhost:5000/api/data");
+
+    const jsonData = getData();
+    if (jsonData) {
+      [earliest, latest] = findDateRange(jsonData);
+    }
+
+    if (timeframe === "AT") {
+      onDateChange([earliest, latest]);
+    } else {
+      earliest = {
+        "7D": dayjs(latest).subtract(7, "day"),
+        "4W": dayjs(latest).subtract(4, "week"),
+        "3M": dayjs(latest).subtract(3, "month"),
+      }[timeframe];
+
+      setEarliestDate(earliest);
+      setLatestDate(latest);
+      onDateChange([earliest, latest]);
+    }
   };
 
   return (

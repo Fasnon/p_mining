@@ -1,9 +1,7 @@
 import "../assets/styles/Equities.css";
 import DatePickerComponent from "../components/DatePickerComponent";
 
-import { useEffect } from "react";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { findDateRange } from "../components/DatePickerComponent";
 import Tabs from "@mui/joy/Tabs";
@@ -13,43 +11,67 @@ import OverviewReport from "./OverviewReport";
 import KeyMetricsReport from "./KeyMetricsReport";
 import WorkflowReport from "./WorkflowReport";
 import IndividualLookUpReport from "./IndividualLookUpReport";
+import { getData } from "../server/filereadserver";
+import {
+  getInformationOnTranscation,
+  prettifyName,
+} from "../utils/GetInformationOnTransaction";
 
 const Overview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // const [jsonData, setJsonData] = useState("");
+  const [jsonData, setJsonData] = useState("");
 
   const [zoomLevel, setZoomLevel] = useState(1);
 
-  // const [startDate, setStartDate] = useState(null);
-  // const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
-  // useEffect(() => {
-    // const initFetch = async () => {
-    //   const response = await fetch("http://localhost:5000/api/data");
-    //   const jsonData = await response.json();
-    //   console.log("ss");
-    //   console.log(jsonData);
-    //   setJsonData(jsonData);
-    //   const dates = findDateRange(jsonData);
-    //   setStartDate(dates[0]);
-    //   setEndDate(dates[1]);
-    // };
-    // initFetch();
-  // }, []);
+  const [mouseOverStep, setMouseOverStep] = useState(null);
+  const [edgeSelectionTitle, setEdgeSelectionTitle] = useState(null);
+  const [edgeSelectionBody, setEdgeSelectionBody] = useState(null);
 
-  // const handleDateChange = async (newDates) => {
-  //   setStartDate(newDates[0]);
-  //   setEndDate(newDates[1]);
-  // };
+  useEffect(() => {
+    const initFetch = async () => {
+      // const response = await fetch("http://localhost:5000/api/data");
+      const jsonData = getData();
+      console.log(jsonData);
+      setJsonData(jsonData);
+      const dates = findDateRange(jsonData);
+      setStartDate(dates[0]);
+      setEndDate(dates[1]);
+    };
+    initFetch();
+  }, []);
+
+  useEffect(() => {
+    setJsonData(getData({ sDate: startDate, eDate: endDate }));
+  }, [startDate, endDate]);
+
+  const handleDateChange = async (newDates) => {
+    setStartDate(newDates[0]);
+    setEndDate(newDates[1]);
+    setJsonData(getData({ sDate: newDates[0], eDate: newDates[1] }));
+  };
+
+  const selectedStepChange = async (newStep) => {
+    setMouseOverStep(newStep);
+    console.log(newStep + "logged in overview");
+  };
+
+  const edgeSelection = async (edgeSelectionTitle, edgeSelectionBody) => {
+    setEdgeSelectionBody(edgeSelectionBody)
+    setEdgeSelectionTitle(edgeSelectionTitle)
+  };
 
   function zoomIn() {
     setZoomLevel(zoomLevel + 0.1);
-    console.log("zommo");
     console.log(zoomLevel);
   }
 
   function zoomOut() {
+    if (zoomLevel >= 0.3) {
     setZoomLevel(zoomLevel - 0.1);
+    }
   }
 
   return (
@@ -73,8 +95,8 @@ const Overview = () => {
 
       <div className="DatePickerContainer">
         <DatePickerComponent
-          // jsonData={jsonData}
-          // onDateChange={handleDateChange}
+          jsonData={jsonData}
+          onDateChange={handleDateChange}
         />
       </div>
       <div className="container">
@@ -91,10 +113,24 @@ const Overview = () => {
           >
             {
               {
-                0: <OverviewReport />,
-                1: <WorkflowReport />,
-                2: <KeyMetricsReport />,
-                3: <IndividualLookUpReport />,
+                0: <OverviewReport startDate={startDate} endDate={endDate} />,
+                1: (
+                  <WorkflowReport
+                    startDate={startDate}
+                    endDate={endDate}
+                    data={jsonData}
+                    onMouseOverChange={selectedStepChange}
+                  />
+                ),
+                2: <KeyMetricsReport startDate={startDate} endDate={endDate} />,
+                3: (
+                  <IndividualLookUpReport
+                    startDate={startDate}
+                    endDate={endDate}
+                    onMouseOverChange={selectedStepChange}
+                    onEdgeSelection={edgeSelection}
+                  />
+                ),
               }[activeIndex]
             }
           </div>
@@ -137,6 +173,34 @@ const Overview = () => {
           <button className="zoomOut" onClick={zoomOut}>
             ➖ Zoom Out
           </button>
+
+{mouseOverStep ? (
+  <>
+    <div className="flowchart-hover">
+      <img alt="Info" src="images/flowchart-info.svg" />
+      <p>{prettifyName(mouseOverStep)}</p>
+    </div>
+    <div className="flowchart-hover-body">
+      {getInformationOnTranscation(mouseOverStep)}
+    </div>
+  </>
+) : (
+  <> </>
+)}
+
+{edgeSelectionTitle ? (
+  <>
+    <div className="flowchart-hover">
+      <img alt="Info" src="images/flowchart-info.svg" />
+      <p>{edgeSelectionTitle}</p>
+    </div>
+    <div className="flowchart-hover-body">
+      {edgeSelectionBody}
+    </div>
+  </>
+) : (
+  <> </>
+)}
         </div>
       </div>
     </>

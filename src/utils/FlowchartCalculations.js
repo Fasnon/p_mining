@@ -1,42 +1,7 @@
 import { MarkerType } from "reactflow";
+import { indivLookup, indivTransactions } from "../server/filereadserver";
 
 export const originalNodes = [
-  {
-    id: "A",
-    type: "groupNode",
-    data: { label: "Trade Input/ Trade Bookings" },
-    position: { x: 0, y: 0 },
-    style: {
-      backgroundColor: "rgba(255, 0, 255, 0.2)",
-      width: 320,
-      height: 300,
-      fontSize: 20,
-    },
-  },
-  {
-    id: "B",
-    type: "groupNode",
-    data: { label: "Matching in Market" },
-    position: { x: 0, y: 350 },
-    style: {
-      backgroundColor: "rgba(0, 255, 255, 0.2)",
-      width: 320,
-      height: 300,
-      fontSize: 20,
-    },
-  },
-  {
-    id: "C",
-    type: "groupNode",
-    data: { label: "Payments" },
-    position: { x: 400, y: 150 },
-    style: {
-      backgroundColor: "rgba(0, 0, 255, 0.2)",
-      width: 320,
-      height: 500,
-      fontSize: 20,
-    },
-  },
   {
     id: "entry",
     type: "processNode",
@@ -97,6 +62,45 @@ export const originalNodes = [
     data: { label: "7", stepName: "Settled", count: 0, stpRate: 0.2 },
     parentNode: "C",
     extent: "parent",
+  },
+  {
+    id: "A",
+    type: "groupNode",
+    data: { label: "Trade Input/ Trade Bookings" },
+    position: { x: 0, y: 0 },
+    style: {
+      backgroundColor: "#F2F3FA44",
+      width: 320,
+      height: 300,
+      fontSize: 20,
+    },
+    zIndex: -1,
+  },
+  {
+    id: "B",
+    type: "groupNode",
+    data: { label: "Matching in Market" },
+    position: { x: 0, y: 350 },
+    style: {
+      backgroundColor: "#F2F3FA44",
+      width: 320,
+      height: 300,
+      fontSize: 20,
+    },
+    zIndex: -1,
+  },
+  {
+    id: "C",
+    type: "groupNode",
+    data: { label: "Payments" },
+    position: { x: 400, y: 150 },
+    style: {
+      backgroundColor: "#F2F3FA44",
+      width: 320,
+      height: 500,
+      fontSize: 20,
+    },
+    zIndex: -1,
   },
 ];
 
@@ -206,7 +210,7 @@ export const originalEdges = [
   },
 ];
 
-export default async function IdealWorkFlowCalculations(data) {
+export async function IdealWorkFlowCalculations(data) {
   var nodes = JSON.parse(JSON.stringify(originalNodes));
   var edges = JSON.parse(JSON.stringify(originalEdges));
   data.forEach((element) => {
@@ -248,9 +252,76 @@ export default async function IdealWorkFlowCalculations(data) {
         //   console.log(correspondingEdge)
         // edges.at(corresponding).data.count += 1
       }
-      previousTransact = transaction.transactionStatus.replace(/\s/g, "");
+      previousTransact = nodes.at(corresponding)
     });
     // console.log(element)
   });
   return [nodes, edges];
+}
+
+export async function IndivWorkflowCalculations(businessIK){
+  const transacts = indivTransactions({businessIK: businessIK});
+  var nodes = JSON.parse(JSON.stringify(originalNodes));
+  var edges = [];
+  var map = new Map();
+  
+  var previousTransact = undefined;
+  for (var j in transacts){
+    const corresponding = nodes.findIndex(
+      (n) => n.id == transacts[j].transactionStatus.replace(/\s/g, ""),
+    );
+    nodes.at(corresponding).data.count = transacts[j].creationDate
+    nodes.at(corresponding).data.indiv = true
+
+
+    var str = transacts[j].transactionStatus.replace(/\s/g, "");
+  
+    if (map.has(str)) {
+      map.set(
+        str,
+        map.get(str) + 1,
+      );
+    } else {
+      map.set(str, 1);
+    }
+
+    
+    if (previousTransact !== undefined) {
+      const correspondingEdge = edges.findIndex(
+        (e) =>
+          e.id ==
+          previousTransact +
+            "-" +
+            transacts[j].transactionStatus.replace(/\s/g, ""),
+      );
+
+      if (correspondingEdge == -1) {
+        edges.push({
+          id:
+            previousTransact +
+            "-" +
+            transacts[j].transactionStatus.replace(/\s/g, ""),
+          source: previousTransact,
+          target: transacts[j].transactionStatus.replace(/\s/g, ""),
+          sourceHandle: "bottom-from",
+          targetHandle: "top-to",
+          label: "1",
+          animated: false,
+        });
+        // console.log(previousTransact + "-" + transaction.transactionStatus.replace(/\s/g, ''))
+      }
+
+  }
+  previousTransact = transacts[j].transactionStatus.replace(/\s/g, ""); 
+}
+
+
+  nodes.forEach((n) => {
+    if (!map.has(n.id)){
+      n.hidden = true
+      }
+
+  })
+  return [nodes, edges];
+  
 }
