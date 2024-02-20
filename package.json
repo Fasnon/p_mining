@@ -41,7 +41,9 @@
     "start-api": "node src/server/dummyserver.js",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +65,7 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.1.1",
     "prettier": "3.0.3"
   }
 }
