@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/p-mining/static/css/main.b265633b.css",
+    "main.js": "/p-mining/static/js/main.715bcec0.js",
+    "static/js/988.f5a7e48b.chunk.js": "/p-mining/static/js/988.f5a7e48b.chunk.js",
+    "static/media/start_background.png": "/p-mining/static/media/start_background.45e6786111cf283015af.png",
+    "index.html": "/p-mining/index.html",
+    "main.b265633b.css.map": "/p-mining/static/css/main.b265633b.css.map",
+    "main.715bcec0.js.map": "/p-mining/static/js/main.715bcec0.js.map",
+    "988.f5a7e48b.chunk.js.map": "/p-mining/static/js/988.f5a7e48b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b265633b.css",
+    "static/js/main.715bcec0.js"
+  ]
+}
